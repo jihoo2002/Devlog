@@ -1,12 +1,12 @@
 # 🍃[Spring Data JPA]
 
-우리가 3차시에 배운 [REST API](https://www.notion.so/3-REST-API-276d426076cd8071a0fcd8d02f6be84b#277d426076cd80bca7efc8949bf6bfc1)`는 애플리케이션 재실행 시 데이터가 초기화되는 문제가 발생한다.
-이로 인해 방금 배운 데이터베이스를 활용해 데이터를 영구적으로 저장하고 유지해야한다.
-이때 활용할 것이 바로 JPA이다.
+우리가 3차시에 배운 [REST API](https://www.notion.so/3-REST-API-276d426076cd8071a0fcd8d02f6be84b#277d426076cd80bca7efc8949bf6bfc1)`는 애플리케이션 재실행 시 데이터가 초기화되는 문제가 발생한다.<br>
+이로 인해 방금 배운 데이터베이스를 활용해 데이터를 영구적으로 저장하고 유지해야한다.<br>
+이때 활용할 것이 바로 **JPA**이다.
 
 # JPA란?
-JPA는 Java Persistence API 의 약자로 자바 ORM 기술에 대한 표준 명세이며,
-자바에서 제공하는 API이다. 개발자가 객체지향 프로그래밍 언어에서 사용하는 객체 모델과
+JPA는 Java Persistence API 의 약자로 자바 ORM 기술에 대한 표준 명세이며,<br>
+자바에서 제공하는 API이다. 개발자가 객체지향 프로그래밍 언어에서 사용하는 객체 모델과<br>
 관계형 데이터 베이스의 테이블 간 매핑을 자동으로 처리해준다.
 
 # 왜 JPA를 사용할까?
@@ -14,8 +14,8 @@ JPA는 Java Persistence API 의 약자로 자바 ORM 기술에 대한 표준 명
 우리는 항상 “왜 이 기술을 사용해야 하는가?”를 먼저 생각해볼 필요가 있다.
 
 ### 직접 SQL을 다루면 안되는 걸까?
-자바 애플리케이션은 JDBC API를 사용해 SQL을 데이터베이스에 전달한다.
-즉, 개발자가 직접 SQL문을 작성하고 실행해야 한다.
+자바 애플리케이션은 JDBC API를 사용해 SQL을 데이터베이스에 전달한다.<br>
+즉, 개발자가 직접 SQL문을 작성하고 실행해야 한다.<br>
 하지만 이러한 작업은 상당히 고된 일이다…
 
 ```sql
@@ -28,47 +28,49 @@ SELECT name, age, email FROM Student;
 # 또 요구사항이 바뀌어 20살 이상인 사람만 보여달라면?
 SELECT name, age, email FROM Student WHERE age >= 20;
 ```
-이렇게 요구사항이 바뀔 때마다 JAVA 개발자는 매번 SQL까지 직접 수정해야 한다.
+이렇게 요구사항이 바뀔 때마다 JAVA 개발자는 매번 SQL까지 직접 수정해야 한다.<br>
 또한 새로운 필드가 생길 때마다 쿼리문을 일일이 수정해야 하는 더 많은 유지보수가 발생한다.
 
-즉, SQL에 의존적인 개발을 피하기가 어려워다는 의미이다.
+즉, SQL에 의존적인 개발을 피하기가 어려워다는 의미이다.<br>
 이러한 상황에서 최선의 선택은 JPA에서 제공하고 있는 ORM이다.
 
 ---
 ## ORM?
-**Object-relational Mapping**(객체 관계 매핑)의 약자이다.
+**Object-relational Mapping**(객체 관계 매핑)의 약자이다.<br>
 ORM을 사용하면 객체와 데이터베이스 테이블 간 변환을 자동화할 수 있다.
 
-즉, 데이터베이스의 행(Row)을 객체로 매핑하고, 객체의 속성을 데이터베이스의 열(Column)과 연결한다.
-이를 통해 개발자는 JPA를 활용하면 객체와 관계형 데이터 베이스 간 맵핑을 손쉽게 처리할 수 있으며 ,
+즉, 데이터베이스의 행(Row)을 객체로 매핑하고, 객체의 속성을 데이터베이스의 열(Column)과 연결한다.<br>
+이를 통해 개발자는 JPA를 활용하면 객체와 관계형 데이터 베이스 간 맵핑을 손쉽게 처리할 수 있으며,<br>
 데이터베이스의 `CRUD(Create, Read, Update, Delete)` 작업을 간편하게 수행할 수 있다.
 
 
 ## JPA의 동작과정
-![](image.png)<!-- {"width":798} -->
-JPA를 활용하면 ORM 내부적으로 java 메서드에 적합한 SQL문이 자동으로 생성되어 실행된다.
+![img_9.png](../image/img_9.png)![](image.png)<!-- {"width":798} -->
+
+JPA를 활용하면 ORM 내부적으로 java 메서드에 적합한 SQL문이 자동으로 생성되어 실행된다.<br>
 그럼 자바 개발자는 클래스만 만들어서 사용하고 직접적으로 SQL문을 작업할 번거로움이 없어지게 된다.
 
 ## JAVA에서 JPA의 주요 장점
-> 데이터 무결성  : 데이터베이스 전체에서 데이터가 정확하고 일관성이 있는 지 확인
-> 직접 매핑허용: java 클래스와 필드를 데이터베이스 테이블과 열에 직접 매핑
-> 이식성 : 코드를 변경하지 않고도 다양한 데이터베이스에서 작동
-> 생산성 향상 : 보일러플레이트 코드를 줄이고 데이터 베이스 작업을 간소화
-> 구현 쉬움: CRUD 작업 및 쿼리를 위한 표준적이고 간단한 API 제공
+> 데이터 무결성  : 데이터베이스 전체에서 데이터가 정확하고 일관성이 있는 지 확인<br>
+> 직접 매핑허용: java 클래스와 필드를 데이터베이스 테이블과 열에 직접 매핑<br>
+> 이식성 : 코드를 변경하지 않고도 다양한 데이터베이스에서 작동<br>
+> 생산성 향상 : 보일러플레이트 코드를 줄이고 데이터 베이스 작업을 간소화<br>
+> 구현 쉬움: CRUD 작업 및 쿼리를 위한 표준적이고 간단한 API 제공<br>
 > 트랜잭션 관리 자동화 : 트랜잭션 관리를 자동화해 개발자가 트랜잭션 범위를 명시하지 않아도 된다.
 
-그럼 이제 이러한 장점을 가진 JPA를 활용해보자
-처음으로 돌아가서 우리는 학생의 데이터를 데이터베이스에 영구히 저장하고 싶다…
+그럼 이제 이러한 장점을 가진 JPA를 활용해보자<br>
+처음으로 돌아가서 우리는 학생의 데이터를 데이터베이스에 영구히 저장하고 싶다…<br>
 과연 어떤 방법이 있을까?
-### 
+
+
 ### 1. @Entity
 ```java
 @Entity // 엔터티 클래스 선언
 public class Student {
 }
 ```
-이 클래스를 `JPA`에서 인식할 수 있도록 `@Entity` 아노테이션을 통해 엔터티를 정의해야 한다.
-@Entity 아노테이션은 `클래스 수준`에서 지정되어야 한다.
+이 클래스를 `JPA`에서 인식할 수 있도록 `@Entity` 아노테이션을 통해 엔터티를 정의해야 한다.<br>
+- @Entity 아노테이션은 `클래스 수준`에서 지정되어야 한다.
 
 ### 2. @Id
 ```java
@@ -143,7 +145,9 @@ public class Student {
 	private Department department;
 }
 ```
-`@ManyToOne`과 `@OneToMany`는 **엔티티 간의 연관관계를 정의하는 아노테이션**이다. 객체지향에서는 클래스 간 참조로 관계를 맺지만, 데이터베이스에서는 외래 키(FK)를 통해 관계를 표현한다. 이 두 아노테이션은 이런 객체 간 관계를 DB 컬럼에 매핑하는 역할을 한다.
+`@ManyToOne`과 `@OneToMany`는 **엔티티 간의 연관관계를 정의하는 아노테이션**이다.<br>
+객체지향에서는 클래스 간 참조로 관계를 맺지만, 데이터베이스에서는 외래 키(FK)를 통해 관계를 표현한다.<br>
+이 두 아노테이션은 이런 객체 간 관계를 DB 컬럼에 매핑하는 역할을 한다.
 
 * @ManyToOne
   * 다대일(N:1) 관계를 나타낸다.
@@ -158,6 +162,8 @@ public class Student {
 
 > 💡 연관관계에 대해서 꼭 공부해보시길 바랍니다. 이 강의자료가 전부가 아니고,   
 > 또 이게 JPA의 전부가 아닙니다! 꼭 따로 다양한 아노테이션에 대해서 공부해보시는 걸 추천합니다~
+
+---
 
 # 실습하기!
 우선 데이터 베이스 스키마를 생성해주자
@@ -178,16 +184,21 @@ create database book_db; // music_db 스카마를 만들자
 ```
 
 ## 프로젝트 세팅
-![](image%204.png)<!-- {"width":718} -->
+![img_5.png](../image/img_5.png)![](image%204.png)<!-- {"width":718} -->
 
-![](image%203.png)<!-- {"width":718} -->
+![img_6.png](../image/img_6.png)![](image%203.png)<!-- {"width":718} -->
+
 여기서 `Spring Web`, `Spring Data JPA`,` MySQL Driver`, `Lombok` 선택 후 `Create`
 
 ## 데이터베이스 연결
-![](image%202.png)<!-- {"width":718} -->
+![img_7.png](../image/img_7.png)![](image%202.png)<!-- {"width":718} -->
+
 `resources` 패키지 내에 있는 `applicaion.properties`를 `application.yml`으로 `Rename`을 해주자
 
-![](image%205.png)<!-- {"width":572} -->
+
+
+![img_8.png](../image/img_8.png)![](image%205.png)<!-- {"width":572} -->
+
 `application.yml`와 `application.properties`둘 중 우리는 `application.yml` 문법을 사용할 것이다.
 (`application.properties` 문법을 사용해도 무방하지만 `yml` 파일과는 다른 문법이기 때문에 공부해보자)
 
@@ -223,20 +234,21 @@ spring:
 
 
 ## 환경변수 세팅
-![](image%206.png)
+![img.png](../image/img.png)
 `Edit Configureations` 클릭
 
-![](image%207.png)<!-- {"width":818} -->
+![img_1.png](../image/img_1.png)![](image%207.png)<!-- {"width":818} -->
 `Modify options` 클릭 후 `Environment variables` 클릭
 
-![](image%209.png)<!-- {"width":798} -->
+
+![](image%209.png)<!-- {"width":798} -->![img_2.png](../image/img_2.png)
 `Environment variables` 쪽 우측에 있는 문서 버튼 클릭
 
-![](image%2010.png)<!-- {"width":808} -->
+![img_3.png](../image/img_3.png)![](image%2010.png)<!-- {"width":808} -->
 여기서 본인의 `DB 패스워드, URL, DB 사용자 이름`을 환경 변수로 세팅하고 `OK` 클릭
 
 ### 현재 패키지 구조
-![](image%2011.png)<!-- {"width":760} -->
+![img_4.png](../image/img_4.png)![](image%2011.png)<!-- {"width":760} -->
 
 ---
 
@@ -486,7 +498,12 @@ public class MusicService {
     }
 }
 ```
-- `@Transactiona`l`은 메서드 또는 클래스에 선언하면 코드 실행 중 트랜잭션에 오류가 발생하면 트랜잭션이 롤백되고 변경사항이 모두 취소할 수 있다.
+- `@Transactional`은 메서드 또는 클래스에 선언하면
+
+  코드 실행 중 트랜잭션에 오류가 발생하면
+트랜잭션이 롤백되고 변경사항이 모두 취소할 수 있다.
+
+
 - `@Transactional(readOnly=true)`은 트랜잭션을 읽기 전용으로 조회성능을 최적화한다.
 
 ---
@@ -568,16 +585,23 @@ public class MusicController {
 ## 포스트맨으로 테스트하기
 가수 생성
 - POST http://localhost:8080/singers
-  가수 삭제
+
+가수 삭제
 - DELETE http://localhost:8080/singers/{singerId}
+
+
 
 노래 생성
 - POST http://localhost:8080/musics
-  노래 조회
+
+노래 조회
 - GET http://localhost:8080/musics/{musicId}
-  노래  수정
+
+노래  수정
 - PATCH http://localhost:8080/musics/{musicId}
-  노래 삭제
+
+노래 삭제
 - DELETE http://localhost:8080/musics/{musicId}
-  모든 노래 목록 조회
-- http://localhost:8080/musics
+
+모든 노래 목록 조회
+- GET http://localhost:8080/musics
