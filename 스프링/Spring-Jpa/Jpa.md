@@ -235,16 +235,20 @@ spring:
 
 ## 환경변수 세팅
 ![img.png](../image/img.png)
+
 `Edit Configureations` 클릭
 
 ![img_1.png](../image/img_1.png)![](image%207.png)<!-- {"width":818} -->
+
 `Modify options` 클릭 후 `Environment variables` 클릭
 
 
 ![](image%209.png)<!-- {"width":798} -->![img_2.png](../image/img_2.png)
+
 `Environment variables` 쪽 우측에 있는 문서 버튼 클릭
 
 ![img_3.png](../image/img_3.png)![](image%2010.png)<!-- {"width":808} -->
+
 여기서 본인의 `DB 패스워드, URL, DB 사용자 이름`을 환경 변수로 세팅하고 `OK` 클릭
 
 ### 현재 패키지 구조
