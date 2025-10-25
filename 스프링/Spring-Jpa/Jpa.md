@@ -245,6 +245,25 @@ create database book_db; // music_db 스카마를 만들자
 ```yml
 spring:
   datasource:
+    url: jdbc:mysql://localhost:3306/music_db
+    username: root
+    password: 데이터베이스 사용자 비밀번호
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    open-in-view: false
+```
+이렇게 바로 값을 명시해도 되지만  보안 상 민감한 정보는 환경변수로 관리하는 것이 안전하다.
+
+```yml
+spring:
+  datasource:
     url: ${DB_URL} 
     username: ${DB_USER_NAME}
     password: ${DB_PASSWORD}
@@ -259,8 +278,7 @@ spring:
         format_sql: true
     open-in-view: false
 ```
-바로 값을 명시해도 되지만  보안 상 민감한 정보는 환경변수로 관리하는 것이 안전하다.<br>
-환경 변수를 세팅하자
+위처럼 환경 변수를 세팅하자
 
 #### 잠깐!
 여기서` hibernate`의 `ddl-auto`의 특성을 알아보기
