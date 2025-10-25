@@ -77,7 +77,7 @@ JPA를 활용하면 ORM 내부적으로 java 메서드에 적합한 SQL문이 �
 > 이식성 : 코드를 변경하지 않고도 다양한 데이터베이스에서 작동<br>
 > 생산성 향상 : 보일러플레이트 코드를 줄이고 데이터 베이스 작업을 간소화<br>
 > 구현 쉬움: CRUD 작업 및 쿼리를 위한 표준적이고 간단한 API 제공<br>
-> 트랜잭션 관리 자동화 : 트랜잭션 관리를 자동화해 개발자가 트랜잭션 범위를 명시하지 않아도 된다.
+> 트랜잭션 관리 자동화 : 트랜잭션 관리를 자동화할 수 있음.
 
 그럼 이제 이러한 장점을 가진 JPA를 활용해보자<br>
 처음으로 돌아가서 우리는 학생의 데이터를 데이터베이스에 영구히 저장하고 싶다…<br>
@@ -170,15 +170,16 @@ public class Student {
 객체지향에서는 클래스 간 참조로 관계를 맺지만, 데이터베이스에서는 외래 키(FK)를 통해 관계를 표현한다.<br>
 이 두 아노테이션은 이런 객체 간 관계를 DB 컬럼에 매핑하는 역할을 한다.
 
-* @ManyToOne
+* `@ManyToOne`
   * 다대일(N:1) 관계를 나타낸다.
   * 즉, 이 코드에서는 **여러 명의 학생(Student)이 하나의 학과(Department)**에 속한다.
   * 그럼 반대편(Department 엔티티)에서는 `@OneToMany`를 사용해 **하나의 학과가 여러 학생을 가질 수 있음**을 표현한다.
 
-* @JoinColumn(name = "department_id")
+* `@JoinColumn(name = "department_id")`
   * Student 테이블에서 Department를 참조하기 위한 외래 키 컬럼명을 지정한다.
 
-* fetch = FetchType.LAZY : **지연 로딩 전략**을 지정한다.
+* `fetch = FetchType.LAZY`
+  * **지연 로딩 전략**을 지정한다.
   * 학생 데이터를 조회할 때 학과 정보를 즉시 불러오지 않고, 실제 접근 시에만 조회한다.
 
 > 💡 연관관계에 대해서 꼭 공부해보시길 바랍니다. 이 강의자료가 전부가 아니고,   
@@ -196,7 +197,7 @@ public class Student {
 우리는 가수 정보를 등록하고, 각 가수별로 음악을 등록·조회·수정·삭제할 수 있는 `음악 관리 CRUD 시스템`을 만들어보자.<br>
 아래는 한 명의 가수(1)가 여러 곡의 음악(N)을 가질 수 있는 **일대다(1:N) 관계**를 기반으로 구성한 `ERD`이다.
 
-![img_2.png](../image/img_2.png)
+![img.png](../image/ERD.png)
 
 ---
 
@@ -218,14 +219,17 @@ create database book_db; // music_db 스카마를 만들자
 ```
 
 ## 프로젝트 세팅
-![img_5.png](../image/img_5.png)![](image%204.png)<!-- {"width":718} -->
+![img.png](../image/projectsetting.png)
 
-![img_6.png](../image/img_6.png)![](image%203.png)<!-- {"width":718} -->
+![img.png](../image/projectsetting2.png)
 
 여기서 `Spring Web`, `Spring Data JPA`,` MySQL Driver`, `Lombok` 선택 후 `Create`
 
+<hr>
+
+
 ## 데이터베이스 연결
-![img_7.png](../image/img_7.png)![](image%202.png)<!-- {"width":718} -->
+![img.png](../image/projectsetting3.png)
 
 `resources` 패키지 내에 있는 `applicaion.properties`를 `application.yml`으로 `Rename`을 해주자
 
@@ -255,7 +259,7 @@ spring:
         format_sql: true
     open-in-view: false
 ```
-바로 값을 명시해도 되지만  보안 상 민감한 정보는 환경변수로 관리하는 것이 안전하다.
+바로 값을 명시해도 되지만  보안 상 민감한 정보는 환경변수로 관리하는 것이 안전하다.<br>
 환경 변수를 세팅하자
 
 #### 잠깐!
@@ -286,10 +290,10 @@ spring:
 <hr>
 
 ### 현재 패키지 구조
-![img_4.png](../image/img_4.png)![](image%2011.png)<!-- {"width":760} -->
+![img.png](../image/package.png)
 
 
-
+<hr>
 
 ## Domain 만들기
 
