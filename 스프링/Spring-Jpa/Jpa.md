@@ -193,7 +193,7 @@ public class Student {
 먼저 설계한 후 구현을 시작하는 것이 좋다.<br>
 [ERD Cloud 바로가기](https://www.erdcloud.com/)
 
-우리는 가수 정보를 등록하고, 각 가수별로 음악을 등록·조회·수정·삭제할 수 있는 `음악 관리 CRUD 시스템`을 만들어보자.<br
+우리는 가수 정보를 등록하고, 각 가수별로 음악을 등록·조회·수정·삭제할 수 있는 `음악 관리 CRUD 시스템`을 만들어보자.<br>
 아래는 한 명의 가수(1)가 여러 곡의 음악(N)을 가질 수 있는 **일대다(1:N) 관계**를 기반으로 구성한 `ERD`이다.
 
 ![img_2.png](../image/img_2.png)
@@ -233,7 +233,7 @@ create database book_db; // music_db 스카마를 만들자
 
 ![img_8.png](../image/img_8.png)![](image%205.png)<!-- {"width":572} -->
 
-`application.yml`와 `application.properties`둘 중 우리는 `application.yml` 문법을 사용할 것이다.
+`application.yml`와 `application.properties`둘 중 우리는 `application.yml` 문법을 사용할 것이다.<br>
 (`application.properties` 문법을 사용해도 무방하지만 `yml` 파일과는 다른 문법이기 때문에 공부해보자)
 
 
@@ -268,21 +268,19 @@ spring:
 
 
 ## 환경변수 세팅
-![img.png](../image/img.png)
-
+![img_1.png](../image/img_1.png)
 `Edit Configureations` 클릭
 <hr>
 
-![img_1.png](../image/img_1.png)![](image%207.png)<!-- {"width":818} -->
-
+![img_2.png](../image/img_2.png)
 `Modify options` 클릭 후 `Environment variables` 클릭
 <hr>
-![](image%209.png)<!-- {"width":798} -->![img_2.png](../image/img_2.png)
 
+![img_4.png](../image/img_4.png)
 `Environment variables` 쪽 우측에 있는 문서 버튼 클릭
 <hr>
-![img.png](img.png)![img_3.p![img_1.png](img_1.png)ng](../image/img_3.png)![](image%2010.png)<!-- {"width":808} -->
 
+![img_7.png](../image/img_7.png)
 여기서 본인의 `DB 패스워드, URL, DB 사용자 이름`을 환경 변수로 세팅하고 `OK` 클릭
 
 <hr>
