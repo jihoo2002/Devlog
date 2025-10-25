@@ -110,7 +110,7 @@ public class Student {
 public class Student {
 
 	@Id // 기본키로 지정
-    	@GeneratedValue(strategy = GenerationType.IDENTITY) // 기본 키 자동 생성
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 기본 키 자동 생성
 	private Long id; //이 필드가 자동 생성되는 기본 키
 }
 ```
@@ -137,7 +137,7 @@ public class Student {
 public class Student {
 
 	@Id // 기본키로 지정
-    	@GeneratedValue(strategy = GenerationType.IDENTITY) // 기본 키 자동 생성
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 기본 키 자동 생성
 	private Long id; //이 필드가 자동 생성되는 기본 키
 
 	@Column(name = "student_name", nullable = false, length = 50, unique = true)
@@ -155,7 +155,7 @@ public class Student {
 public class Student {
 
 	@Id // 기본키로 지정
-    	@GeneratedValue(strategy = GenerationType.IDENTITY) // 기본 키 자동 생성
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 기본 키 자동 생성
 	private Long id; //이 필드가 자동 생성되는 기본 키
 
 	@Column(name = "student_name", nullable = false, length = 50, unique = true)
