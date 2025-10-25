@@ -273,18 +273,22 @@ spring:
 
 ## 환경변수 세팅
 ![img_1.png](../image/img_1.png)
+
 `Edit Configureations` 클릭
 <hr>
 
 ![img_2.png](../image/img_2.png)
+
 `Modify options` 클릭 후 `Environment variables` 클릭
 <hr>
 
 ![img_4.png](../image/img_4.png)
+
 `Environment variables` 쪽 우측에 있는 문서 버튼 클릭
 <hr>
 
 ![img_7.png](../image/img_7.png)
+
 여기서 본인의 `DB 패스워드, URL, DB 사용자 이름`을 환경 변수로 세팅하고 `OK` 클릭
 
 <hr>
@@ -541,9 +545,7 @@ public class MusicService {
     }
 }
 ```
-- `@Transactional`은 메서드 또는 클래스에 선언하면
-
-  코드 실행 중 트랜잭션에 오류가 발생하면
+- `@Transactional`은 메서드 또는 클래스에 선언하면 코드 실행 중 트랜잭션에 오류가 발생하면<br>
 트랜잭션이 롤백되고 변경사항이 모두 취소할 수 있다.
 
 
