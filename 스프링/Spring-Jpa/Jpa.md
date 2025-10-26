@@ -215,7 +215,7 @@ create database music_db; // music_db 스카마를 만들자
 */
 mysqld --console
 mysql -u root -p // 비밀번호 입력 창이 뜨면 비밀번호 입력
-create database book_db; // music_db 스카마를 만들자
+create database music_db; // music_db 스카마를 만들자
 ```
 
 ## 프로젝트 세팅
