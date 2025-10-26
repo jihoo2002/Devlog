@@ -387,7 +387,7 @@ public class Singer {
 ```
 `id`와 `name`을 가지는 `Singer` 도메인이다.
 - 한 가수는 여러 개의 뮤직을 가질 수 있음으로 연관관계는 `@OneToMany`
-- `@Builder` 패턴을 통해 생성자를 생성할 수 있다.
+- `@Builder`를 통해 객체 생성 시 빌더 패턴을 적용할 수 있다.
 
 ---
 
