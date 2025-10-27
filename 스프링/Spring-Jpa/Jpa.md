@@ -321,38 +321,31 @@ spring:
 
 ### Music 도메인
 ```java
-package com.gdg.jpaexample.domain;
-
-import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 @Entity
 @Getter
 @NoArgsConstructor
 public class Music {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    private String title;
+  private String title;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "singer_id")
-    private Singer singer;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "singer_id")
+  private Singer singer;
 
-    @Builder
-    public Music(String title, Singer singer) {
-        this.title = title;
-        this.singer = singer;
-    }
+  @Builder
+  public Music(String title, Singer singer) {
+    this.title = title;
+    this.singer = singer;
+  }
 
-    public void update(String title, Singer singer) {
-        this.title = title;
-        this.singer = singer;
-    }
+  public void update(String title, Singer singer) {
+    this.title = title;
+    this.singer = singer;
+  }
 }
 ```
 `id`와 `title`을 가지는 `Music` 도메인이다.
@@ -363,26 +356,27 @@ public class Music {
 ### Singer 도메인
 ```java
 @Entity
+@Getter
 @NoArgsConstructor
 public class Singer {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    private String name;
+  private String name;
 
-    @Column(name = "debut_year")
-    private int debutYear;
+  @Column(name = "debut_year")
+  private int debutYear;
 
-    @OneToMany(mappedBy = "singer", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Music> musics = new ArrayList<>();
+  @OneToMany(mappedBy = "singer", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Music> musics = new ArrayList<>();
 
-    @Builder
-    public Singer(String name, int debutYear) {
-        this.name = name;
-        this.debutYear = debutYear;
-    }
+  @Builder
+  public Singer(String name, int debutYear) {
+    this.name = name;
+    this.debutYear = debutYear;
+  }
 }
 ```
 `id`와 `name`을 가지는 `Singer` 도메인이다.
@@ -647,7 +641,7 @@ public class MusicController {
 
 ## 포스트맨으로 테스트하기
 가수 생성
-- POST http://localhost:8080/singers
+- POST http://localhost:8080/singers/
 
 가수 삭제
 - DELETE http://localhost:8080/singers/{singerId}
@@ -655,7 +649,7 @@ public class MusicController {
 
 
 노래 생성
-- POST http://localhost:8080/musics
+- POST http://localhost:8080/musics/
 
 노래 조회
 - GET http://localhost:8080/musics/{musicId}
@@ -667,4 +661,4 @@ public class MusicController {
 - DELETE http://localhost:8080/musics/{musicId}
 
 모든 노래 목록 조회
-- GET http://localhost:8080/musics
+- GET http://localhost:8080/musics/
