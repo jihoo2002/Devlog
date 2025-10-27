@@ -213,7 +213,6 @@ create database music_db; // music_db 스카마를 만들자
 /*
 윈도우 환경
 */
-mysqld --console
 mysql -u root -p // 비밀번호 입력 창이 뜨면 비밀번호 입력
 create database music_db; // music_db 스카마를 만들자
 ```
