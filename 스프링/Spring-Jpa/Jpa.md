@@ -388,6 +388,7 @@ public class Singer {
 
 ### MusicRepository
 ```java
+// JpaRepository<엔티티 클래스, 엔티티 PK 타입>
 public interface MusicRepository extends JpaRepository<Music, Long> {
 }
 ```
