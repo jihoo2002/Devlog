@@ -576,7 +576,7 @@ public class SingerController {
 
   private final SingerService singerService;
 
-  @PostMapping("/")
+  @PostMapping
   public ResponseEntity<SingerInfoResponseDto> saveSinger(@RequestBody SingerSaveRequestDto singerSaveRequestDto) {
     return ResponseEntity.status(HttpStatus.CREATED).body(singerService.saveSinger(singerSaveRequestDto));
   }
@@ -601,7 +601,7 @@ public class MusicController {
 
   private final MusicService musicService;
 
-  @PostMapping("/")
+  @PostMapping
   public ResponseEntity<MusicInfoResponseDto> saveMusic(@RequestBody MusicSaveRequestDto musicSaveRequestDto) {
     return ResponseEntity.status(HttpStatus.CREATED).body(musicService.saveMusic(musicSaveRequestDto));
   }
@@ -623,7 +623,7 @@ public class MusicController {
     return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
   }
 
-  @GetMapping("/")
+  @GetMapping
   public ResponseEntity<List<MusicInfoResponseDto>> getAllMusic() {
     return ResponseEntity.status(HttpStatus.OK).body(musicService.getAllMusic());
   }
@@ -641,7 +641,7 @@ public class MusicController {
 
 ## 포스트맨으로 테스트하기
 가수 생성
-- POST http://localhost:8080/singers/
+- POST http://localhost:8080/singers
 
 가수 삭제
 - DELETE http://localhost:8080/singers/{singerId}
@@ -649,7 +649,7 @@ public class MusicController {
 
 
 노래 생성
-- POST http://localhost:8080/musics/
+- POST http://localhost:8080/musics
 
 노래 조회
 - GET http://localhost:8080/musics/{musicId}
@@ -661,4 +661,4 @@ public class MusicController {
 - DELETE http://localhost:8080/musics/{musicId}
 
 모든 노래 목록 조회
-- GET http://localhost:8080/musics/
+- GET http://localhost:8080/musics
