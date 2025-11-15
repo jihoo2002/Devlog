@@ -367,7 +367,11 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '12345678
       
 -- 변경 내용 반영
 FLUSH PRIVILEGES;
+      
+-- MySQL 세션 종료
+exit;
 ```
+변경 내용을 적용한 후, `MySQL` 세션을 종료하자.
 
 ---
 
