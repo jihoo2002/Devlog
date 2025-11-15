@@ -259,13 +259,15 @@ chmod 400 파일명
 ---
 
 ```bash
-ssh -i "파일명" ubuntu@내 퍼블릭 Ip 주소
+ssh -i "본인키파일명.pem" ubuntu@내 퍼블릭 Ip 주소
 ```
+여기서 아까 다운로드한 본인의 `pem` 키 파일 이름과<br>
+본인 `EC2` 인스턴스의 퍼블릭 `IP` 주소를 입력한다.
+
 ![img.png](image/keypairConnect3.png)
 
 `yes`를 해준다.
 
-여기서 저장한 파일명과 `내 퍼플릭 Ip주소`를 입력한다
 
 ---
 
