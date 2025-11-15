@@ -413,6 +413,8 @@ SHOW DATABASES; # 생성된 스키마 목록 확인
 
 ### DuckDNS로 무료 도메인 발급받기
 
+먼저 여기에서 본인 소셜 계정으로 `DuckDNS`에 로그인하자.
+
 ![img_1.png](image/dns.png)
 
 원하는 도메인으로 설정 후 `add domain` 클릭
