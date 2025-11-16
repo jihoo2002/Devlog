@@ -490,7 +490,7 @@ sudo vim /etc/nginx/sites-available/default
 server_name deploy-study.duckdns.org www.deploy-study.duckdns.org;
 ```
 `DuckDNS`에서 발급받은 도메인 이름을 `Nginx`가 처리하도록 지정하기 위해서<br>
-`server_name`에 {구매한 도메인 이름}, www.{구매한 도메인}을 설정해<br>
+`server_name`에 `{구매한 도메인 이름}, www.{구매한 도메인}`을 설정해<br>
 `www` 포함/미포함 도메인 모두 처리 가능하도록 해주자
 
 ```bash
@@ -626,6 +626,7 @@ export DB_PASSWORD=아까 본인이 설정한 mysql비밀번호
 ---
 
 ![img_20.png](img_20.png)
+
 인텔리제이에 접속 후 <br>
 프로젝트에서 상단 메뉴바에 `View -> Tool Windows -> Terminal`로 <br>
 터미널 환경에서 `./gradlew build -x test`를 입력해 프로젝트를 빌드한다.
@@ -696,4 +697,3 @@ ps -ef | grep 파일이름.jar # 잘 실행되는 지 확인 명령어
 - 힌트 : 배포를 자동화 하는 방법(CI/CD)
 
 또 인스턴스 보안을 강화하려면 VPC와 보안그룹을 공부해봅시다!
-
